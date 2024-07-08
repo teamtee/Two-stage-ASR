@@ -83,6 +83,7 @@ pip install -r requirements.txt
 ### Notes
 
 - Tokens: Using the Deepseekv2 model, the token consumption on the AISHELL-1 and Librispeech datasets is 250k(input)+260k(output) and 640k(input)+650k(output) respectively, with the combination numbers set to 30 and 10.
+- You can see the historical results in the result directory
 
 ### Testing LLM Capabilities
 1. Fill in the `config/test/Chinese/gpt.yaml` configuration file.

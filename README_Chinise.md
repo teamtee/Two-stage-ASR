@@ -86,8 +86,7 @@ pip install -r requirements.txt
 
 
 - Tokens:使用Deepseekv2模型在AISHELL-1和Librispeech数据集上的tokens消耗情况分别为250k(input)+260k(output)和640k(input)+650k(output)，设置的组合数分别为30和10。
-
-
+- 你可以在result的目录下查看历史结果
 ### 测试LLM能力
 1. 填写`config/test/Chinese/gpt.yaml`配置文件。
 2. 执行测试脚本：
