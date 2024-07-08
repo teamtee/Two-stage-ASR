@@ -1,4 +1,4 @@
-yaml
+pyyaml
 openai
 zhipuai
 azure-core          

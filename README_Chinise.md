@@ -1,6 +1,6 @@
 
 # Two Stage Automatic Speech Recognition System With Large Language Model
-
+[English_doc](./README.md)
 ## 项目简介
 华中科技大学Dain团队开发的项目，目的在于将大型语言模型（LLM）集成到ASR系统中，以提高识别的准确性。但是注意现在的本文工作是基于现有数据集的框架，必须已有识别出的文本文件text。
 

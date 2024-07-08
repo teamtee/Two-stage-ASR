@@ -1,5 +1,5 @@
 # Two Stage Automatic Speech Recognition System With Large Language Model
-
+[中文文档](./README_Chinise.md)
 ## Project Overview
 Developed by the Dain team at Huazhong University of Science and Technology, this project aims to integrate large language models (LLMs) into ASR systems to improve recognition accuracy. Note that the current work is based on the framework of existing datasets and requires pre-recognized text files.
 

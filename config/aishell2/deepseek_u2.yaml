@@ -3,7 +3,7 @@ path:
 text : "data/aishell2/label/text"
 provider : deepseek
 model : deepseek-chat
-api_key : 
+api_key : sk-f515df1938164b5d8aeaf9b30494d349
 base_url : https://api.deepseek.com
 filter : 
     flag : false

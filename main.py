@@ -34,10 +34,6 @@ class chat_agent:
         self.combination_num = config["combination_num"]
         self.filter = config["filter"]
         self.filter_wav = []
-        if self.filter["filterscp"] != None:
-            with open(self.filter["filterscp"],"r") as f:
-                for line in f:
-                    self.filter_wav.append(line.split()[0])
         self.substitue = config["substitue"]
         self.format = config["format"]
 
@@ -112,7 +108,7 @@ class chat_agent:
                 return answer.choices[0].message.content
     def extract_model_task(self,path):
         lines = []
-        with open(path,"r") as f:
+        with open(path,"r",encoding="utf-8") as f:
             for line in f:
                 lines.append(line)
         if  self.shuffle == True:
@@ -228,7 +224,8 @@ class chat_agent:
                         tasks = self.repeat_task.pop(0)
                         executor.submit(self.thread_response_function,tasks)
             print(f"time comsume:{time.time() - self.start_time:.2f} s")
-            print(f"sentence num:{len(self.infos)}")
+            print(f"success num:{len(self.infos)}")
+            task_name = task_name.replace(" ","_")
             os.makedirs(f"result/{result_path}/{task_name}",exist_ok=True)
             with open(f"result/{result_path}/{task_name}/text","w") as f:
                 for info in self.infos:
@@ -264,7 +261,7 @@ class chat_agent:
             os.system(f"python ./tools/extrac_err_from_wer.py  'result/{result_path}/{task_name}/' ")
         
 def main():
-    with open("/home/fyg/Integrate-LLM-into-ASR/config/aishell1/gpt_u2_conformer.yaml",'r') as f:
+    with open("./config/aishell2/deepseek_u2.yaml",'r',encoding="utf-8") as f:
         config = yaml.safe_load(f)
     agent = chat_agent(config)
     agent.run(config)
