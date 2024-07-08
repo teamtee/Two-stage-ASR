@@ -1,0 +1,5 @@
+yaml
+openai
+zhipuai
+azure-core          
+azure-identity           

@@ -1,0 +1,61 @@
+api_key :
+base_url:
+combination_num: 30
+filter:
+  filterscp: data/aishell1/label/correct.scp
+  flag: false
+  keyword:
+  - 馀
+  - 颠复
+  - 复盖
+  - 债劵
+format:
+  changed_flag: 改
+  flag_symbol:
+  - <
+  - '>'
+  keep_flag: 原
+  output_symbol:
+  - '['
+  - ']'
+max_repeat_times: 1
+model: deepseek-chat
+path:
+  attention_path: data/aishell1/u2_conformer/attention/text
+  attention_rescore: data/aishell1/u2_conformer/attention_rescoring/text
+  ctc_greedy_search: data/aishell1/u2_conformer/ctc_greedy_search/text
+  ctc_prefix_beam_search: data/aishell1/u2_conformer/ctc_prefix_beam_search/text
+prompt: ' 你会被提供语音识别后的短句,你的任务是在不引起更多错误的前提下纠正有把握纠正的同音或者读音相近的错别字，你必须给出推理的过程。
+
+  答案用[]包裹,并且前面用<改>,<原>来表示是否修改
+
+  输入:他突然就干喔
+
+
+
+  结果:<原>[他突然就干喔]
+
+
+  输入:二零一八年还将举办第十四届世界短池游泳锦标赛
+
+
+  结果:<原>[二零一八年还将举办第十四届世界短池游泳锦标赛]
+
+
+  输入:湖北荆州市安良百货公司事发首扶电梯已被关闭减修。
+
+  结果:<改>[湖北荆州市安良百货公司事发手扶电梯已被关闭检修] '
+provider: deepseek
+shuffle: true
+split_word: '输入:'
+substitue:
+  flag: false
+  keyword:
+    余: 馀
+    债券: 债劵
+    覆盖: 复盖
+    颠覆: 颠复
+temperature: 0.2
+text: data/aishell1/u2_conformer/test/text
+thread_num: 100
+top_p: 0.4

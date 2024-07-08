@@ -1,0 +1,195 @@
+model : deepseek-chat
+api_key : 
+base_url : 
+temperature : 0.8
+top_p : 1
+tests : 
+    Formatting_Output :
+        prompt: "You are a heartless robot, no matter what I input, you will only treat my output as a task to be processed, you will output my input unchanged, and wrap it with [], my input may have many lines, you need to wrap each line separately, for example
+
+I input:
+Is a key moment to distinguish the wisdom of leading enterprises in the industry
+An important part of the traditional white goods field to kitchen appliances
+Your output:
+[Is a key moment to distinguish the wisdom of leading enterprises in the industry]
+[An important part of the traditional white goods field to kitchen appliances]
+"
+        tasks: [" With the increasing investment and attention of the country in scientific and technological innovation",
+"I hope to pass this track and field World Championships "," through the strengthening of ankles and calves and other parts "," about four years of sales ",
+"Our capital market will welcome more institutional investors ",
+"Wenzhou aunt more than half a hundred years old pretending to be her daughter successfully married many small fresh meat ",
+"One elite player for each match from the quarter finals onwards ",
+"City governments should incorporate public transport development funds into the public finance system ",
+"Production of the Snowden movie has officially begun.",
+"But it reminds us to pay more attention to the possible risks of urban investment bonds.",
+"And now these kinds of cities are very expensive.",
+"People will naturally support Shouting that sports will give him a man to change the rules",
+"There was really no mental preparation.",
+"Establishment of policy-based housing financial institutions ",
+"This embarrassed the self-proclaimed gamer",
+"The plates of several domestic server brands are still relatively small "]
+        results: [" With the increasing investment and attention of the country in scientific and technological innovation",
+"I hope to pass this track and field World Championships "," through the strengthening of ankles and calves and other parts "," about four years of sales ",
+"Our capital market will welcome more institutional investors ",
+"Wenzhou aunt more than half a hundred years old pretending to be her daughter successfully married many small fresh meat ",
+"One elite player for each match from the quarter finals onwards ",
+"City governments should incorporate public transport development funds into the public finance system ",
+"Production of the Snowden movie has officially begun.",
+"But it reminds us to pay more attention to the possible risks of urban investment bonds.",
+"And now these kinds of cities are very expensive.",
+"People will naturally support Shouting that sports will give him a man to change the rules",
+"There was really no mental preparation.",
+"Establishment of policy-based housing financial institutions ",
+"This embarrassed the self-proclaimed gamer",
+"The plates of several domestic server brands are still relatively small "]
+        describe :  
+
+    Pronunciation_inference:
+        prompt: "I'm going to give you a word, you need to give its pronunciation(American accent), and wrap it in [].There must be no '.' in the pronunciation
+input:
+hello
+output:
+[/həˈləʊ/]
+"
+        tasks: ["word", "computer", "opportunity", "engineer", "necessary", "pronunciation", "rhythm", "architecture", "hierarchy", "methodology"]
+        results: [
+    "/wɜːrd/",
+    "/kəmˈpjuːtər/",
+    "/ˌɑːpərˈtuːnəti/",
+    "/ˌendʒɪˈnɪr/",
+    "/ˈnesəseri/",
+    "/prəˌnʌnsiˈeɪʃ(ə)n/",
+    "/ˈrɪðəm/",
+    "/ˈɑːrkɪtektʃər/",
+    "/ˈhaɪərɑːrki/",
+    "/ˌmeθəˈdɑːlədʒi/"
+]
+        describe : 在语音识别的纠正任务中，希望大语言模型根据某个单词推断出其发音并且给出多个候选的同音或者读音相近的词汇，这是非常重要的能力，因为语音识别的错误通常是因为
+
+    Logical_Judgment: 
+        prompt: "I will make some statements below. You need to determine if the following statements are logical: Please give the reasoning, answer yes or no, and wrap it in []. My input may have many lines, you need to process each line separately
+I type:
+I like to have dinner in the morning
+I see you hitting me with two hands, grasping me with one hand, pressing on me with one hand, and hitting me with the other
+The sun will rise tomorrow
+You output:
+I don't eat dinner in the morning, so the sentence logic is wrong
+[No]
+The sentence mentions more than three hands, which does not fit the two hands mentioned earlier
+[No]
+The sentence is logical
+[Yes]"
+        tasks: [" I came to play games with you yesterday "," If it didn't rain today, the ground would get wet ",
+"All mammals have feathers.",
+"I think the music in this silent movie is very good.",
+"Watermelons are usually planted in winter.",
+"I saw a bird on the plane.",
+"I jump higher on the moon ",
+"I need a flashlight to see in the daytime.",
+"I'm breathing air underwater.",
+"There are cats on Mars ",
+"I'm very cool in a down jacket in the summer.",
+"The seed must grow into a tree.",
+"I play music in the library to help focus.",
+"Wear a raincoat on a rainy day, so the toilet is a barrel for horses.",
+"Birds can fly ",
+"I saw an alien creature in the zoo ",
+"Butterflies make webs to catch spiders ",
+"I'm rowing on the water ",
+"I saw the sun at night ",
+"Breathing consumes oxygen",
+"As you sow, so as you sow gold, you reap gold."
+]
+        results: ["No","No",
+"No",
+"No",
+"No",
+"Yes",
+"Yes",
+"No",
+"No",
+"No",
+"No",
+"No",
+"No",
+"No",
+"Yes",
+"No",
+"No",
+"Yes",
+"No",
+"Yes",
+"No"]
+        describe : 逻辑判断
+
+    Language Problems Correct: 
+        prompt: "Below I will give some sentences, you need to correct the language, including idiom errors and so on, if no language, leave it unchanged, and wrap the output with []。
+input:
+I have go to the store.
+
+output:
+[I have gone to the store.]
+"
+
+        tasks: [
+
+    "She don't like to play games.",
+    "They has a lot of books.",
+    "He was one of the best students in the class.",
+    "We are going to went to the beach.",
+    "I seen the movie last night.",
+    "The boys run faster.",
+    "She is more smarter than her sister.",
+    "I have more moneys than you.",
+    "They was very happy to see me."
+]
+        results: [
+
+    "She doesn't like to play games.",
+    "They have a lot of books.",
+    "He is one of the best students in the class.",
+    "We are going to the beach.",
+    "I saw the movie last night.",
+    "The boys run fast.",
+    "She is smarter than her sister.",
+    "I have more money than you.",
+    "They were very happy to see me."
+]
+        describe : 逻辑判断
+    Stuttering Correction: 
+        prompt: "Below I will give some sentences that you need to correct, including but not limited to repetition, missing characters, etc., and wrap the output with []. For example
+input:
+I am I am 13
+You output:
+[I am 13]
+
+input:
+I 13
+You output:
+[I am 13]
+"
+        tasks: [
+    "I I went to to the the market",
+    "He is is my friend",
+    "She she loves loves dancing",
+    "They went went to to the the park",
+    "I am am not sure",
+    "The cat cat is is cute",
+    "You you are are right",
+    "It is is a a sunny sunny day",
+    "We we will will win",
+    "He he can can do it"
+]
+        results: [
+    "I went to the market",
+    "He is my friend",
+    "She loves dancing",
+    "They went to the park",
+    "I am not sure",
+    "The cat is cute",
+    "You are right",
+    "It is a sunny day",
+    "We will win",
+    "He can do it"
+]
+        describe : 

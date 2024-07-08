@@ -1,0 +1,113 @@
+api_key :
+base_url:
+base_url: https://teamteegpt.openai.azure.com
+combination_num: 10
+filter:
+  filterscp: data/aishell1/label/correct.scp
+  flag: false
+  keyword:
+  - 零
+  - 一
+  - 二
+  - 三
+  - 四
+  - 五
+  - 六
+  - 七
+  - 八
+  - 九
+  - 十
+  - 馀
+  - 颠复
+  - 复盖
+  - 债劵
+format:
+  changed_flag: change
+  flag_symbol:
+  - '#'
+  - '#'
+  keep_flag: original
+  output_symbol:
+  - '['
+  - ']'
+max_repeat_times: 1
+model: gpt4o
+path:
+  test_clean_attention: data/librispeech/u2_conformer/test_clean/attention/text
+  test_clean_attention_rescoring: data/librispeech/u2_conformer/test_clean/attention_rescoring/text
+  test_clean_ctc_greedy_search: data/librispeech/u2_conformer/test_clean/ctc_greedy_search/text
+  test_clean_ctc_prefix_beam_search: data/librispeech/u2_conformer/test_clean/ctc_prefix_beam_search/text
+  test_other_attention: data/librispeech/u2_conformer/test_other/attention/text
+  test_other_attention_rescoring: data/librispeech/u2_conformer/test_other/attention_rescoring/text
+  test_other_ctc_greedy_search: data/librispeech/u2_conformer/test_other/ctc_greedy_search/text
+  test_other_ctc_prefix_beam_search: data/librispeech/u2_conformer/test_other/ctc_prefix_beam_search/text
+prompt: ' You will be provided with short speech recognition sentences, and your task
+  is to correct these short sentences to a standard correct recognition result without
+  typos and language errors. Usually, errors are due to homophones and so on.
+
+  To determine whether a sentence is defective, If there is no language disease, output
+  the sentence or correct errors by thinking in the following way。
+
+  （1）Locate the position of the defective phrase in the sentence （2）Give the pronunciation
+  of the defective phrase （3）Give multiple candidates  according to their pronunciation
+  （4）Select the appropriate candidates combined with the context
+
+  For the corrected sentence, you need to continue to determine whether there is a
+  language problem. If you do not have confidence in the correction, then give up
+  the correction. You can correct the sentence up to three times
+
+  Note:(1)Both input and output must be saved in all uppercase(2)(2)The answer is
+  wrapped in [] and preceded by change#,#original# to indicate whether to change or
+  not
+
+  Here are some examples,you need to give the reasoning process
+
+  Input:BECAUSE HE WANTED TO BREAD A NEW GENERATION OF BAKERS
+
+  Inference:The sentence has language problems, correct the sentence (1) the defective
+  word is <bread> (2) the pronunciation of <bread> is /bred/ (3) Given the candidate
+  words <breed>-/briːd/, <bled>-/blɛd/, <brand>-/brænd/ (4) select <breed> according
+  to the context, and the corrected sentence is none Speech disorders, output results
+
+  Result:#change#[BECAUSE HE WANTED TO BREED A NEW GENERATION OF BAKERS]
+
+  Input:DUE TO THEE THEIR PRAISE OF MAIDEN PURE OF TEEMING MOTHERHOOD
+
+  Inference:The sentence doesn''t have language problems,output the origin sentence
+
+  Result:#original#[DUE TO THEE THEIR PRAISE OF MAIDEN PURE OF TEEMING MOTHERHOOD]
+
+  Input:ORGAN OF RUT NOT REASON IS THE LORD WHO FROM THE BODY POLITIC DOTH DRAIN LOST
+  FOR HIMSELF INSTEAD OF TOIL AND PAIN LEAVING US LENA''S    CRICKETS ON DRY SWARD
+
+  Inference: The sentence has language problems, correct the sentence. (1) The defective
+  phrase is <Lena''s crickets>. (2) The pronunciation of <Lena''s crickets> is /ˈliːnəz
+  ˈkrɪkɪts/. (3) Given the candidate phrases: <lean as crickets> - /liːn əz ˈkrɪkɪts/,
+  <lend us crickets> - /lɛnd ʌs ˈkrɪkɪts/, <Lenna''s crickets> - /ˈlɛnəz ˈkrɪkɪts/.
+  (4) Select <lend us crickets> according to the context, and the corrected sentence
+  is still has Speech disorders, abandoning this change and repeat inference.
+
+  Inference: The sentence has language problems, correct the sentence. (1) The defective
+  phrase is <Lena''s crickets>. (2) The pronunciation of <Lena''s> is /ˈliːnəz/. (3)
+  Given the candidate phrases: <lean as> - /liːn æz/, <leaned as> - /liːnd æz/, <Lenas>
+  - /ˈliːnəs/. (4) Select <lean as> according to the context, as it fits better with
+  the idea of being left in a lean or meager state. The corrected sentence is still
+  not perfect, but there are no obvious language errors.
+
+  Result: #change#[ORGAN OF RUT NOT REASON IS THE LORD WHO FROM THE BODY POLITIC DOTH
+  DRAIN LOST FOR HIMSELF INSTEAD OF TOIL AND PAIN LEAVING US LEAN AS CRICKETS ON DRY
+  SWARD] '
+provider: azure
+shuffle: false
+split_word: '输入:'
+substitue:
+  flag: false
+  keyword:
+    余: 馀
+    债券: 债劵
+    覆盖: 复盖
+    颠覆: 颠复
+temperature: 0.8
+text: data/librispeech/u2_conformer/text
+thread_num: 100
+top_p: 0.8

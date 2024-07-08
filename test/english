@@ -1,0 +1,57 @@
+
+gpt 3.5
+Formatting_Output {'success😊': 16, 'faild😥': 0}
+Pronunciation_inference {'success😊': 2, 'faild😥': 8}
+Logical_Judgment {'success😊': 14, 'faild😥': 7}
+Language Problems Correct {'success😊': 7, 'faild😥': 2}
+Stuttering Correction {'success😊': 10, 'faild😥': 0}
+
+
+gpt 4
+Formatting_Output {'success😊': 15, 'faild😥': 1}
+Pronunciation_inference {'success😊': 2, 'faild😥': 8}
+Logical_Judgment {'success😊': 19, 'faild😥': 2}
+Language Problems Correct {'success😊': 7, 'faild😥': 2}
+Stuttering Correction {'success😊': 10, 'faild😥': 0}
+
+gpt 4o
+
+Formatting_Output {'success😊': 15, 'faild😥': 1}
+Pronunciation_inference {'success😊': 0, 'faild😥': 10}
+Logical_Judgment {'success😊': 19, 'faild😥': 2}
+Language Problems Correct {'success😊': 7, 'faild😥': 2}
+Stuttering Correction {'success😊': 10, 'faild😥': 0}
+
+dashscope
+
+Formatting_Output {'success😊': 13, 'faild😥': 3}
+Pronunciation_inference {'success😊': 2, 'faild😥': 8}
+Logical_Judgment {'success😊': 11, 'faild😥': 10}
+Language Problems Correct {'success😊': 7, 'faild😥': 2}
+Stuttering Correction {'success😊': 8, 'faild😥': 2}
+
+claudesont
+
+Formatting_Output {'success😊': 8, 'faild😥': 8}
+Pronunciation_inference {'success😊': 0, 'faild😥': 10}
+Logical_Judgment {'success😊': 12, 'faild😥': 9}
+Language Problems Correct {'success😊': 5, 'faild😥': 4}
+Stuttering Correction {'success😊': 7, 'faild😥': 3}
+
+gemini-pro
+
+./config/test/English/gpt.yaml
+Formatting_Output {'success😊': 15, 'faild😥': 1}
+Pronunciation_inference {'success😊': 2, 'faild😥': 8}
+Logical_Judgment {'success😊': 17, 'faild😥': 4}
+Language Problems Correct {'success😊': 6, 'faild😥': 3}
+Stuttering Correction {'success😊': 10, 'faild😥': 0}
+
+glm4
+
+
+Formatting_Output {'success😊': 14, 'faild😥': 2}
+Pronunciation_inference {'success😊': 2, 'faild😥': 8}
+Logical_Judgment {'success😊': 16, 'faild😥': 5}
+Language Problems Correct {'success😊': 6, 'faild😥': 3}
+Stuttering Correction {'success😊': 9, 'faild😥': 1}

@@ -1,0 +1,72 @@
+deepseek
+
+Formatting_Output {'success😊': 44, 'faild😥': 0}
+Pronunciation_inference {'success😊': 34, 'faild😥': 17}
+Logical_Judgment {'success😊': 16, 'faild😥': 5}
+Language Problems Correct {'success😊': 6, 'faild😥': 3}
+Stuttering Correction {'success😊': 8, 'faild😥': 2}
+
+ernie 3.5
+
+Formatting_Output {'success😊': 43, 'faild😥': 1}
+Pronunciation_inference {'success😊': 33, 'faild😥': 18}
+Logical_Judgment {'success😊': 9, 'faild😥': 12}
+Language Problems Correct {'success😊': 4, 'faild😥': 5}
+Stuttering Correction {'success😊': 6, 'faild😥': 4}
+
+
+##gpt
+gpt 3.5
+Formatting_Output {'success😊': 44, 'faild😥': 0}
+Pronunciation_inference {'success😊': 38, 'faild😥': 13}
+Logical_Judgment {'success😊': 15, 'faild😥': 6}
+Language Problems Correct {'success😊': 3, 'faild😥': 6}
+Stuttering Correction {'success😊': 7, 'faild😥': 3}
+
+gpt 4o
+
+Formatting_Output {'success😊': 44, 'faild😥': 0}
+Pronunciation_inference {'success😊': 37, 'faild😥': 14}
+Logical_Judgment {'success😊': 20, 'faild😥': 1}
+Language Problems Correct {'success😊': 5, 'faild😥': 4}
+Stuttering Correction {'success😊': 8, 'faild😥': 2}
+
+gpt 4
+Formatting_Output {'success😊': 44, 'faild😥': 0}
+Pronunciation_inference {'success😊': 38, 'faild😥': 13}
+Logical_Judgment {'success😊': 19, 'faild😥': 2}
+Language Problems Correct {'success😊': 6, 'faild😥': 3}
+Stuttering Correction {'success😊': 8, 'faild😥': 2}
+
+## dashscope
+
+qwen-turbo
+Formatting_Output {'success😊': 43, 'faild😥': 1}
+Pronunciation_inference {'success😊': 4, 'faild😥': 47}
+Logical_Judgment {'success😊': 19, 'faild😥': 2}
+Language Problems Correct {'success😊': 2, 'faild😥': 7}
+Stuttering Correction {'success😊': 7, 'faild😥': 3}
+
+
+## claude
+claude-3-sonnet-20240229
+Formatting_Output {'success😊': 44, 'faild😥': 0}
+Pronunciation_inference {'success😊': 33, 'faild😥': 18}
+Logical_Judgment {'success😊': 17, 'faild😥': 4}
+Language Problems Correct {'success😊': 1, 'faild😥': 8}
+Stuttering Correction {'success😊': 7, 'faild😥': 3}
+
+## genimi 
+gemini-pro
+
+Formatting_Output {'success😊': 44, 'faild😥': 0}
+Pronunciation_inference {'success😊': 32, 'faild😥': 19}
+Logical_Judgment {'success😊': 19, 'faild😥': 2}
+Language Problems Correct {'success😊': 5, 'faild😥': 4}
+Stuttering Correction {'success😊': 7, 'faild😥': 3}
+glm4
+Formatting_Output {'success😊': 39, 'faild😥': 5}
+Pronunciation_inference {'success😊': 21, 'faild😥': 30}
+Logical_Judgment {'success😊': 18, 'faild😥': 3}
+Language Problems Correct {'success😊': 4, 'faild😥': 5}
+Stuttering Correction {'success😊': 4, 'faild😥': 6}
