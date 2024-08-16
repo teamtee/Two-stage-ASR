@@ -97,51 +97,62 @@ pip install -r requirements.txt
 
 You can also fill in a new test
 ## Result
+
+
 ### AISHELL-1
-| Model                | Decode Method | Chunk API Params | Task | num | sentence | CER(%) | Change | Temp | Top p | Change Error |
-|---------------------|---------------|------------------|------|-----|----------|---------|--------|------|--------|--------------|
-| attention            | full          | -                | -    | -   | -        | 5.06    | -      | -    | -      | -            |
-| attention rescore    | full          | -                | -    | -   | -        | 4.62    | -      | -    | -      | -            |
-| ctc greedy search    | full          | -                | -    | -   | -        | 5.17    | -      | -    | -      | -            |
-| ctc prefix search    | full          | -                | -    | -   | -        | 5.17    | -      | -    | -      | -            |
-| deepseekv2 attention | full          | 0.2 0.8 20       | -    | 1568| 2365     | 4.69    | -0.37   | -    | -      | 7.3%         |
-| deepseekv2 attention rescore | full | 0.2 0.8 20       | -    | 1451| 2189     | 4.21    | -0.41   | -    | -      | 8.8%         |
-| deepseekv2 ctc greedy search | full | 0.2 0.8 20       | -    | 1892| 2331     | 4.51    | -0.66   | -    | -      | 12.7%        |
-| deepseekv2 ctc prefix search | full | 0.2 0.8 20       | -    | 1860| 2324     | 4.48    | -0.69   | -    | -      | 13%          |
-| gpt-3.5-turbo attention | full | 0.8 0.8 20       | -    | 595 | 2651     | 5.09    | +0.03   | -    | -      | 0.5%         |
-| gpt-3.5-turbo attention rescore | full | 0.8 0.8 20       | -    | 568 | 2502     | 4.69    | +0.07   | -    | -      | 1.5%         |
-| gpt-3.5-turbo ctc greedy search | full | 0.8 0.8 20       | -    | 519 | 2798     | 5.20    | +0.03   | -    | -      | 0.6%         |
-| gpt-3.5-turbo ctc prefix search | full | 0.8 0.8 20       | -    | 433 | 2785     | 5.21    | +0.04   | -    | -      | 0.7%         |
-| gpt-4o attention     | full          | 0.2 0.8 20       | -    | 1715| 2295     | 4.32    | -0.74   | -    | -      | 14.6%        |
-| gpt-4o attention rescore | full | 0.2 0.8 20       | -    | 1736| 2153     | 4.01    | -0.61   | -    | -      | 13%          |
-| gpt-4o ctc greedy search | full | 0.2 0.8 20       | -    | 2075| 2272     | 4.06    | -1.11   | -    | -      | 21%          |
-| gpt-4o ctc prefix search | full | 0.2 0.8 20       | -    | 2137| 2234     | 4.06    | -1.11   | -    | -      | 21%          |
+
+| Two-stage | Decode       | Chunk | API Params | Task num | sentence | CER(%) | Change      | Error |
+|-----------|--------------|-------|------------|----------|----------|---------|-------------|-------|
+|           |              |       | Temp       | Top p    |          |         |             |       |
+| -         | attention    | full  | -          | -        | -        | 2650    | 5.06        | -     |
+| -         | attention rescore | full  | -          | -        | -        | 2493    | 4.62        | -     |
+| -         | ctc greedy search | full  | -          | -        | -        | 2810    | 5.17        | -     |
+| -         | ctc prefix search | full  | -          | -        | -        | 2810    | 5.17        | -     |
+
+| deepseekv2 | attention    | full  | 0.2        | 0.8      | 20       | 1568    | 2365        | 4.69  | -0.37(7.3%) |
+| deepseekv2 | attention rescore | full  | 0.2        | 0.8      | 20       | 1451    | 2189        | 4.21  | -0.41(8.8%)  |
+| deepseekv2 | ctc greedy search | full  | 0.2        | 0.8      | 20       | 1892    | 2331        | 4.51  | -0.66(12.7%) |
+| deepseekv2 | ctc prefix search | full  | 0.2        | 0.8      | 20       | 1860    | 2324        | 4.48  | -0.69(13%)   |
+
+| gpt-3.5-turbo | attention    | full  | 0.8        | 0.8      | 20       | 595     | 2651        | 5.09  | +0.03(0.5%) |
+| gpt-3.5-turbo | attention rescore | full  | 0.8        | 0.8      | 20       | 568     | 2502        | 4.69  | +0.07(1.5%) |
+| gpt-3.5-turbo | ctc greedy search | full  | 0.8        | 0.8      | 20       | 519     | 2798        | 5.20  | +0.03(0.6%) |
+| gpt-3.5-turbo | ctc prefix search | full  | 0.8        | 0.8      | 20       | 433     | 2785        | 5.21  | +0.04(0.7%) |
+
+| gpt-4o      | attention    | full  | 0.2        | 0.8      | 20       | 1715    | 2295        | 4.32  | -0.74(14.6%)|
+| gpt-4o      | attention rescore | full  | 0.2        | 0.8      | 20       | 1736    | 2153        | **4.01**| -0.61(13%)  |
+| gpt-4o      | ctc greedy search | full  | 0.2        | 0.8      | 20       | 2075    | 2272        | 4.06  | **-1.11(21%)**|
+| gpt-4o      | ctc prefix search | full  | 0.2        | 0.8      | 20       | 2137    | 2234        | 4.06  | **-1.11(21%)**|
 
 ### AISHELL-2
-| Model               | Decode Method      | Chunk API Params | Task | num   | sentence | CER(%) | Change    | Temp | Top p | Changed Error |
-|---------------------|--------------------|------------------|------|-------|----------|---------|-----------|------|--------|---------------|
-| attention rescore   | -                  | 16               | -    | 1715  | -        | 5.57    | -         | -    | -      | -             |
-| GPT4o attention rescore | -                | 16               | 0.8  | 896   | 1517     | 4.95    | -0.62(11%) | 0.2  | -      | 11%           |
-| deepseekv2 attention rescore | -          | 16               | 0.8  | 223   | 1510     | 6.09    | +0.52(9%)  | 0.8  | -      | 9%            |
-| GPT3.5-turbo attention rescore | -      | 16               | 0.8  | 389   | 1715     | 5.65    | +0.08(1.5%)| 0.4  | -      | 1.5%          |
+| Two-stage | Decode             | Chunk | API Params | Task num | Changed | Error | CER(%)     | Change       |
+|-----------|--------------------|-------|------------|----------|---------|-------|-------------|--------------|
+|           |                    |       | Temp       | Top p    |         |       |            |              |
+|-----------|--------------------|-------|------------|----------|---------|-------|-------------|--------------|
+| -         | attention rescore | 16    | -          | -        | -       | 1715  | 5.57       | -            |
+| GPT4o     | attention rescore  | 16    | 0.8        | 0.2      | 20      | 896   | 1517       | **4.95**    | -0.62(11%)   |
+| deepseekv2 | attention rescore  | 16    | 0.8        | 0.8      | 20      | 223   | 1510       | 6.09        | +0.52(9%)    |
+| GPT3.5-turbo | attention rescore | 16    | 0.8        | 0.4      | 20      | 389   | 1715       | 5.65        | +0.08(1.5%)  |
 
 
 ### Librispeech
 
-| Model                  | Decode Method    | Chunk API Params | Task | Temp   | Top p | test-clean WER(%) | Change test-clean | test-other WER(%) | Change test-other |
-|------------------------|------------------|------------------|------|--------|--------|-------------------|-------------------|-------------------|-------------------|
-| attention              | full             | -                | -    | -      | -      | 3.82              | -                 | 8.79              | -                 |
-| attention rescore      | full             | -                | -    | -      | -      | 3.35              | -                 | 8.77              | -                 |
-| ctc greedy search      | full             | -                | -    | -      | -      | 3.77              | -                 | 9.52              | -                 |
-| ctc prefix search      | full             | -                | -    | -      | -      | 3.75              | -                 | 9.50              | -                 |
-| deepseekv2 attention   | full             | 0.8 0.8 10       | -    | 0.8    | 0.8    | 4.58              | +0.76(19%)        | 10.11            | +1.32(-15%)       |
-| deepseekv2 attention rescore | full   | 0.8 0.8 10       | -    | 0.8    | 0.8    | 4.21              | +0.86(25%)        | 10.42            | +1.65(18%)        |
-| deepseekv2 ctc greedy search | full | 0.8 0.8 10       | -    | 0.8    | 0.8    | 4.45              | +0.68(18%)        | 10.20            | +0.68(7%)         |
-| deepseekv2 ctc prefix search | full | 0.8 0.8 10       | -    | 0.8    | 0.8    | 4.93              | +1.18(31%)        | 9.97             | +0.47(4.9%)       |
-| gpt-4o attention       | full             | 0.8 0.8 10       | -    | 0.8    | 0.8    | 3.64              | -0.18(4.7%)       | 8.32             | -0.47(5.3%)       |
-| gpt-4o attention rescore | full   | 0.8 0.8 10       | -    | 0.8    | 0.8    | 3.19              | -0.16(4.7%)       | 8.38             | -0.39(4.4%)       |
-| gpt-4o ctc greedy search | full   | 0.8 0.8 10       | -    | 0.8    | 0.8    | 3.43              | -0.34(9%)         | 8.45             | -1.07(11.2%)      |
-| gpt-4o ctc prefix search | full   | 0.8 0.8 10       | -    | 0.8    | 0.8    | 3.58              | -0.17(4.5%)       | 8.41             | -1.09(11.4%)      |
+| Two-stage | Decode       | Chunk  | API Params | Task num | WER(%) | Change          | WER(%) | Change          |
+|-----------|--------------|--------|------------|----------|--------|-----------------|--------|-----------------|
+|           |              |        | Temp       | Top p    |        | test-clean     | test-other |                |
+|-----------|--------------|--------|------------|----------|--------|-----------------|--------|-----------------|
+| -         | attention    | full   | -          | -        | 3.82   | -               | 8.79   | -               |
+| -         | attention rescore | full  | -          | -        | 3.35   | -               | 8.77   | -               |
+| -         | ctc greedy search | full  | -          | -        | 3.77   | -               | 9.52   | -               |
+| -         | ctc prefix search | full  | -          | -        | 3.75   | -               | 9.50   | -               |
+| deepseekv2 | attention    | full   | 0.8        | 0.8      | 10     | 4.58            | +0.76(19%) | 10.11  | +1.32(-15%)     |
+| deepseekv2 | attention rescore | full  | 0.8        | 0.8      | 10     | 4.21            | +0.86(25%) | 10.42  | +1.65(18%)      |
+| deepseekv2 | ctc greedy search | full  | 0.8        | 0.8      | 10     | 4.45            | +0.68(18%) | 10.20  | +0.68(7%)       |
+| deepseekv2 | ctc prefix search | full  | 0.8        | 0.8      | 10     | 4.93            | +1.18(31%) | 9.97   | +0.47(4.9%)     |
+| gpt-4o    | attention    | full   | 0.8        | 0.8      | 10     | **3.64**        | -0.18(4.7%)| **8.32**| -0.47(5.3%)     |
+| gpt-4o    | attention rescore | full  | 0.8        | 0.8      | 10     | **3.19**        | -0.16(4.7%)| 8.38   | -0.39(4.4%)     |
+| gpt-4o    | ctc greedy search | full  | 0.8        | 0.8      | 10     | 3.43            | **-0.34(9%)**| 8.45   | -1.07(11.2%)    |
+| gpt-4o    | ctc prefix search | full  | 0.8        | 0.8      | 10     | 3.58            | -0.17(4.5%)| 8.41   | **-1.09(11.4%)**|
 ## Acknowledgments
 Thanks to [wenet](https://github.com/wenet-e2e/wenet/blob/main/README.md) for providing tools and pre-trained models.
 
